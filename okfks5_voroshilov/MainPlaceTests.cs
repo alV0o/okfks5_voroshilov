@@ -229,6 +229,7 @@ namespace okfks5_voroshilov
         }
 
         //Проверка изменения формы для редактирования записи
+        //СПРОСИТЬ ПРО ВЫСКАКИВАЮЩЕЕ ОКНО
         [Fact]
         public void CheckEditNote()
         {
@@ -243,12 +244,12 @@ namespace okfks5_voroshilov
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
 
-            Thread.Sleep(500);
+            Thread.Sleep(2000);
 
             IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[1]"));
             note.Click();
 
-            Thread.Sleep(500);
+            Thread.Sleep(2000);
 
             IWebElement title = _driver.FindElement(By.Id("editorTitle"));
 
@@ -339,7 +340,7 @@ namespace okfks5_voroshilov
             Assert.DoesNotContain(expectedClass, classes);
         }
 
-        //смотрит на наличие блока Поделиться для заметки пользователя
+        //смотрит на отсутствие блока Поделиться для заметки пользователя в чужих заметках
         [Fact]
         public void CloseShareBlock()
         {
