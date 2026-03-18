@@ -206,3 +206,5 @@ D:\ProgrammingAll\3kurs\okfks5_voroshilov\okfks5_voroshilov\obj\Debug\net8.0\okf
 D:\ProgrammingAll\3kurs\okfks5_voroshilov\okfks5_voroshilov\obj\Debug\net8.0\okfks5_voroshilov.genruntimeconfig.cache
 D:\ProgrammingAll\3kurs\okfks5_voroshilov\okfks5_voroshilov\obj\Debug\net8.0\ref\okfks5_voroshilov.dll
 D:\ProgrammingAll\3kurs\okfks5_voroshilov\okfks5_voroshilov\bin\Debug\net8.0\WebDriver.Support.dll
+C:\voroshilov\okfks5_voroshilov\okfks5_voroshilov\bin\Debug\net8.0\WebDriver.Support.dll
+C:\voroshilov\okfks5_voroshilov\okfks5_voroshilov\obj\Debug\net8.0\okfks5_voroshilov.sourcelink.json

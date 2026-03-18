@@ -23,7 +23,7 @@ namespace okfks5_voroshilov
         {
             _driver.Url = "https://test.webmx.ru/";
 
-            const string author = "alvo";
+            //const string author = "alvo";
 
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
@@ -46,7 +46,7 @@ namespace okfks5_voroshilov
             inputSearch.SendKeys("v");
             inputSearch.SendKeys("o");
 
-            Thread.Sleep(500);
+            Thread.Sleep(200);
 
             var notes = _driver.FindElements(By.CssSelector("#notesList li"));
 
@@ -60,7 +60,7 @@ namespace okfks5_voroshilov
         {
             _driver.Url = "https://test.webmx.ru/";
 
-            const string title = "first";
+            //const string title = "first";
 
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
@@ -98,7 +98,7 @@ namespace okfks5_voroshilov
         {
             _driver.Url = "https://test.webmx.ru/";
 
-            const string desc = "desc";
+            //const string desc = "desc";
 
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));

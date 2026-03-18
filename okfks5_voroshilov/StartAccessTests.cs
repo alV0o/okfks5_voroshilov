@@ -125,7 +125,7 @@ namespace okfks5_voroshilov
             Thread.Sleep(100);
 
             IWebElement message = _driver.FindElement(By.Id("message"));
-            const string expectedText = "Пароль должен быть не короче 3 символов.";
+            const string expectedText = "Пароль должен быть не короче 6 символов.";
 
             Assert.Contains(expectedText, message.Text);
         }
