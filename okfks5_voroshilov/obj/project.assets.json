@@ -564,6 +564,22 @@
           }
         }
       },
+      "Selenium.Support/4.41.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.41.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Selenium.WebDriver/4.41.0": {
         "type": "package",
         "compile": {
@@ -2399,6 +2415,20 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "Selenium.Support/4.41.0": {
+      "sha512": "ZKUuiHuJKUV/7uC1eF81zSb8w2RA+JlkC1/yeM99XAa3Q8a2PgyHVA2MH9FHzufGO3nJXUe0RIx2wbBdVDgioA==",
+      "type": "package",
+      "path": "selenium.support/4.41.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/WebDriver.Support.dll",
+        "lib/netstandard2.0/WebDriver.Support.xml",
+        "selenium.support.4.41.0.nupkg.sha512",
+        "selenium.support.nuspec"
       ]
     },
     "Selenium.WebDriver/4.41.0": {
@@ -5556,6 +5586,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 17.8.0",
+      "Selenium.Support >= 4.41.0",
       "Selenium.WebDriver >= 4.41.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
@@ -5616,6 +5647,10 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.8.0, )"
+          },
+          "Selenium.Support": {
+            "target": "Package",
+            "version": "[4.41.0, )"
           },
           "Selenium.WebDriver": {
             "target": "Package",

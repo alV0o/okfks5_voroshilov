@@ -11,6 +11,9 @@ namespace okfks5_voroshilov
 {
     public class MainPlaceTests : IDisposable
     {
+        private const string login = "testFor3";
+        private const string password = "P@ssw0rd";
+
         private readonly WebDriver _driver = new ChromeDriver();
         //отображение и включенность кнопки новой заметки
         [Fact]
@@ -21,8 +24,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -45,8 +48,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -70,8 +73,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -95,8 +98,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -116,8 +119,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -141,8 +144,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -165,8 +168,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -190,8 +193,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -211,8 +214,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -229,7 +232,6 @@ namespace okfks5_voroshilov
         }
 
         //Проверка изменения формы для редактирования записи
-        //СПРОСИТЬ ПРО ВЫСКАКИВАЮЩЕЕ ОКНО
         [Fact]
         public void CheckEditNote()
         {
@@ -238,18 +240,18 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
 
             IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[1]"));
             note.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
 
             IWebElement title = _driver.FindElement(By.Id("editorTitle"));
 
@@ -257,7 +259,7 @@ namespace okfks5_voroshilov
             Assert.Contains(excpectedTitle, title.Text);
         }
 
-        //Проверка изменения формы для командного редактирования записи
+        //Проверка изменения формы для командного редактирования записи не владельцем
         [Fact]
         public void CheckCoopEditNote()
         {
@@ -266,15 +268,15 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
 
             Thread.Sleep(500);
 
-            IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[3]"));
+            IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[2]"));
             note.Click();
 
             Thread.Sleep(500);
@@ -293,8 +295,8 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -320,15 +322,15 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
 
             Thread.Sleep(500);
 
-            IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[5]"));
+            IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[1]"));
             note.Click();
 
             Thread.Sleep(500);
@@ -349,15 +351,15 @@ namespace okfks5_voroshilov
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
 
             Thread.Sleep(500);
 
-            IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[4]"));
+            IWebElement note = _driver.FindElement(By.XPath("//*[@id=\"notesList\"]/li[2]"));
             note.Click();
 
             Thread.Sleep(500);

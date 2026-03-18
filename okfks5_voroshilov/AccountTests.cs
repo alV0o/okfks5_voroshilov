@@ -17,11 +17,15 @@ namespace okfks5_voroshilov
         public void CorrectAuthorisation()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "alvo";
+            const string password = "123456";
+
+
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -39,11 +43,14 @@ namespace okfks5_voroshilov
         public void CorrectLogout()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "dadaaa";
+            const string password = "123456";
+
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("dadaaa");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -66,11 +73,14 @@ namespace okfks5_voroshilov
         public void UpdateStateAfterLogin()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "alvo";
+            const string password = "123456";
+
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputLogin.SendKeys("alvo");
-            inputPassword.SendKeys("123456");
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
             loginBtn.Click();
@@ -82,6 +92,43 @@ namespace okfks5_voroshilov
             string expectedClass = "hidden";
 
             Assert.Contains(expectedClass, classes);
+        }
+
+        //сообщение при добавлении пустого заголовка
+        [Fact]
+        public void AddNoteWithEmptyTitle()
+        {
+            _driver.Url = "https://test.webmx.ru/";
+            const string login = "dadaaa";
+            const string password = "123456";
+
+            const string titleInputText = "         ";
+
+            IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
+            IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
+
+            inputLogin.SendKeys(login);
+            inputPassword.SendKeys(password);
+
+            IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
+            loginBtn.Click();
+
+            Thread.Sleep(500);
+
+            IWebElement titleInput = _driver.FindElement(By.Id("noteTitle"));
+            titleInput.SendKeys(titleInputText);
+
+            IWebElement saveBtn = _driver.FindElement(By.Id("saveBtn"));
+            saveBtn.Click();
+
+            Thread.Sleep(200);
+
+            IWebElement message = _driver.FindElement(By.Id("message"));
+
+            string expectedText = "Заполните заголовок заметки.";
+
+            Assert.Contains(expectedText, message.Text);
+
         }
 
         public void Dispose()

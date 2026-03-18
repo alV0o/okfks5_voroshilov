@@ -63,8 +63,9 @@ namespace okfks5_voroshilov
         {
             _driver.Url = "https://test.webmx.ru/";
             IWebElement passwordInput = _driver.FindElement(By.Id("authPassword"));
+            const string password = "123456";
 
-            passwordInput.SendKeys("123456");
+            passwordInput.SendKeys(password);
 
             const string expectedText = "123456";
 
@@ -76,14 +77,18 @@ namespace okfks5_voroshilov
         public void AlertAfterEmptyLogin()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "     ";
+            const string password = "123456";
+
+
             IWebElement switchBtn = _driver.FindElement(By.Id("registerTab"));
             switchBtn.Click();
             
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
-            inputLogin.SendKeys("     ");
+            inputLogin.SendKeys(login);
 
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
-            inputPassword.SendKeys("123456");
+            inputPassword.SendKeys(password);
 
             IWebElement registerButton = _driver.FindElement(By.Id("authSubmit"));
             registerButton.Click();
@@ -102,14 +107,17 @@ namespace okfks5_voroshilov
         public void AlertAfterEmptyPassword()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "test23";
+            const string password = "                 ";
+
             IWebElement switchBtn = _driver.FindElement(By.Id("registerTab"));
             switchBtn.Click();
 
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
-            inputLogin.SendKeys("test23");
+            inputLogin.SendKeys(login);
 
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
-            inputPassword.SendKeys("       ");
+            inputPassword.SendKeys(password);
 
             IWebElement registerButton = _driver.FindElement(By.Id("authSubmit"));
             registerButton.Click();
@@ -127,13 +135,16 @@ namespace okfks5_voroshilov
         public void IncorrectPassword()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "alvo";
+            const string password = "33333333333333333333";
+
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
 
-            inputLogin.SendKeys("alvo");
+            inputLogin.SendKeys(login);
 
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputPassword.SendKeys("333333333");
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
 
@@ -152,13 +163,16 @@ namespace okfks5_voroshilov
         public void IncorrectLogin()
         {
             _driver.Url = "https://test.webmx.ru/";
+            const string login = "alvooooooooooo";
+            const string password = "123456";
+
             IWebElement inputLogin = _driver.FindElement(By.Id("authUsername"));
 
-            inputLogin.SendKeys("alvooooo");
+            inputLogin.SendKeys(login);
 
             IWebElement inputPassword = _driver.FindElement(By.Id("authPassword"));
 
-            inputPassword.SendKeys("123456");
+            inputPassword.SendKeys(password);
 
             IWebElement loginBtn = _driver.FindElement(By.Id("authSubmit"));
 
